@@ -1,0 +1,11 @@
+.contact {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.contactDelete {
+  margin: 0;
+}
+
