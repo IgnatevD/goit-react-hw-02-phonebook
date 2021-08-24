@@ -9,5 +9,7 @@
   margin-bottom: 3px;
 }
 .inputFilter {
+  font-weight: 16px;
+  outline: none;
   width: 100%;
 }
