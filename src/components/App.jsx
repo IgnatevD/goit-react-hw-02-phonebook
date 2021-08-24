@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import ContactForm from "./ContactForm/ContactForm";
 import ContactList from "./ContactList/ContactList";
 import Filter from "./Filter/Filter";
@@ -19,6 +20,11 @@ class App extends Component {
 
   formSubmit = ({ name, number }) => {
     const newContact = { id: uuidv4(), name, number };
+    const { contacts } = this.state;
+    const arryFindName = contacts.find((contact) => contact.name.toLowerCase() === name.toLowerCase());
+   
+    if (arryFindName) return alert ("Ошибка, контакт с данным именем существует");
+
     this.setState(({ contacts }) => ({
       contacts: [newContact, ...contacts],
     }));
@@ -27,6 +33,10 @@ class App extends Component {
   handleFilterChange = (e) => {
     this.setState({ filter: e.currentTarget.value });
   };
+
+  formCheckName = ({ name }) => {
+    
+  }
 
   newContactsFilter = () => {
     const { contacts, filter } = this.state;
@@ -70,5 +80,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  contacts: PropTypes.array,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+};
 
 export default App;

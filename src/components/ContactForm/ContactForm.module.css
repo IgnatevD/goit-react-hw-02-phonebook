@@ -11,7 +11,7 @@ form {
   flex-wrap: wrap;
 }
 
-button {
+.formSubmitButton {
   cursor: pointer;
   margin-top: 15px;
   display: block;
@@ -20,7 +20,14 @@ button {
   border: 1px solid white;
 }
 
-button:hover {
+.formSubmitButton:hover {
   background: white;
   color: black;
 }
+
+.formInputName, .formInputNumber  {
+    outline: none;
+    padding: 2px;
+    font-weight: 14px;
+}
+

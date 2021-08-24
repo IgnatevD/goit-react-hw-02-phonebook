@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
+import PropTypes from 'prop-types';
 import s from "../ContactForm/ContactForm.module.css";
 
 class ContactForm extends Component {
@@ -33,6 +34,7 @@ class ContactForm extends Component {
         <label htmlFor={this.nameInputId}>Имя</label>
         <input
           id={this.nameInputId}
+          className={s.formInputName}
           type="text"
           name="name"
           value={name}
@@ -47,6 +49,7 @@ class ContactForm extends Component {
         <label htmlFor={this.numberInputId}>Телефон</label>
         <input
           id={this.numberInputId}
+          className={s.formInputNumber}
           type="tel"
           name="number"
           value={number}
@@ -58,10 +61,16 @@ class ContactForm extends Component {
           title="+380223332222 или (044)7881000"
         />
 
-        <button type="submit">Добавить контакт</button>
+        <button type="submit" className={s.formSubmitButton}>Добавить контакт</button>
       </form>
     );
   }
 }
+
+ContactForm.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+};
+
 
 export default ContactForm;
