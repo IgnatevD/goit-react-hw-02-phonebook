@@ -23,7 +23,7 @@ class App extends Component {
     const { contacts } = this.state;
     const arryFindName = contacts.find((contact) => contact.name.toLowerCase() === name.toLowerCase());
    
-    if (arryFindName) return alert ("Ошибка, контакт с данным именем существует");
+    if (arryFindName) return alert (`Ошибка, контакт с данным именем ${name} существует`);
 
     this.setState(({ contacts }) => ({
       contacts: [newContact, ...contacts],
@@ -33,10 +33,6 @@ class App extends Component {
   handleFilterChange = (e) => {
     this.setState({ filter: e.currentTarget.value });
   };
-
-  formCheckName = ({ name }) => {
-    
-  }
 
   newContactsFilter = () => {
     const { contacts, filter } = this.state;
